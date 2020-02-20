@@ -1,11 +1,9 @@
 var/
-web/
 vendor/
 .htaccess
 .idea/
 adminer-4.7.5.php
 autoload.php
-bin/
 composer.json
 composer.lock
 config.php
@@ -17,10 +15,4 @@ license.txt
 media/
 php-error.log
 recovery/
-shopware.php
-themes/Backend
-themes/grunt-tasks
 themes/node_modules
-themes/Frontend/Bare
-themes/Frontend/Responsive
-freay
