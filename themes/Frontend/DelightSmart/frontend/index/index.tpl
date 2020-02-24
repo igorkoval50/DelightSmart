@@ -7,5 +7,6 @@
     {if $sTarget} is--target-{$sTarget|escapeHtml}{/if}
     {if $theme.checkoutHeader && (({controllerName|lower} == "checkout" && {controllerAction|lower} != "cart") || ({controllerName|lower} == "register" && ($sTarget != "account" && $sTarget != "address")))} is--minimal-header{/if}
     {if !$theme.displaySidebar} is--no-sidebar{/if}
-    {if $theme.offthemeChoice} dark-them {/if}
+    {if $theme.offthemeChoice} dark-theme {/if}
+    {if $theme.show_configuration} mixed no-show {/if}
 {/strip}{/block}

@@ -80,8 +80,32 @@
   filter: blur(5px) grayscale(80%);
   transition: all .8s;
 }
-
-
+.no-show {
+  .main-theme {
+    display: none;
+  }
+}
+.mixed, .dark-theme, .white-theme {
+  .switch-toggle {
+    float: left;
+    background: #242729;
+  }
+  .switch-toggle input {
+    position: absolute;
+    opacity: 0;
+    height: 100%;
+    width: 39px;
+  }
+  .switch-toggle input + label {
+    padding: 7px;
+    float:left;
+    color: #fff;
+    cursor: pointer;
+  }
+  .switch-toggle input:checked + label {
+    background: green;
+  }
+}
 
 
 

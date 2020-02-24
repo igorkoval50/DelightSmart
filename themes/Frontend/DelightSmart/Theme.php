@@ -182,5 +182,33 @@ SHOPWARE_EOD;
         $tab->addElement($fieldset);
 
         $container->addTab($tab);
+
+        // Mix theme ///////////////////
+        $fieldsetConfiguration = $this->createFieldSet(
+            'theme_configuration_field',
+            'Usuall configuration',
+            [
+                'attributes' => $styleColomon,
+            ]
+        );
+
+        $themeConfigurationShow = $this->createCheckboxField(
+            'show_configuration',
+            'add configuration theme',
+            false
+        );
+
+        $fieldsetConfiguration->addElement($themeConfigurationShow);
+
+
+        $tabConfiguraton = $this->createTab(
+            'theme_mix',
+            'Theme Mix'
+        );
+
+
+        $tabConfiguraton->addElement($fieldsetConfiguration);
+
+        $container->addTab($tabConfiguraton);
     }
 }
