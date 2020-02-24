@@ -76,6 +76,7 @@ SHOPWARE_EOD;
             'virtualPath'
         );
 
+
 //        $themeLightFontFamily = $this->createTextField(
 //            'light_font_family',
 //            'add goggle font url',
@@ -94,11 +95,37 @@ SHOPWARE_EOD;
             "Roboto, sans-serif"
         );
 
+        $themeLightFontSizeLink = $this->createPixelField(
+            'light_font_size_link',
+            'font-size for links',
+            "16"
+        );
+
+        $themeLightFontSizeTxt = $this->createPixelField(
+            'light_font_size_txt',
+            'font-size for links',
+            "16"
+        );
+        $themeLightFontSizeHeadline = $this->createPixelField(
+            'light_font_size_headline',
+            'font-size for headline',
+            "24"
+        );
+        $themeLightBackground =  $this->createColorPickerField(
+            'light_background',
+            'body background',
+            '#fff'
+        );
+
         // Adding the fields to the fieldset of the header
         $fieldsetTheme->addElement($themeChoiceShow);
         $fieldsetThemeLight->addElement($themeLightLogo);
 //        $fieldsetThemeLight->addElement($themeLightFontFamily);
         $fieldsetThemeLight->addElement($themeLightFont);
+        $fieldsetThemeLight->addElement($themeLightFontSizeLink);
+        $fieldsetThemeLight->addElement($themeLightFontSizeTxt);
+        $fieldsetThemeLight->addElement($themeLightFontSizeHeadline);
+        $fieldsetThemeLight->addElement($themeLightBackground);
 
         $tabThemeCommon = $this->createTab(
             'theme_settings_common',
@@ -107,7 +134,7 @@ SHOPWARE_EOD;
 
         $tabThemeLight = $this->createTab(
             'theme_settings_light',
-            'theme light'
+            'Theme light'
         );
 
         $tabThemeCommon->addElement($fieldsetTheme);
@@ -116,7 +143,8 @@ SHOPWARE_EOD;
         $container->addTab($tabThemeCommon);
         $container->addTab($tabThemeLight);
 
-        //dark theme
+
+        //dark theme ///////////////////
         $BodyBackground = $this->createColorPickerField(
             'Body_Background',
             'Body background',
@@ -134,7 +162,10 @@ SHOPWARE_EOD;
         );
         $fieldset = $this->createFieldSet(
             'Settings_For_Dark_Theme',
-            'Settings for Dark Theme'
+            'Settings for Dark Theme',
+            [
+                'attributes' => $styleColomon,
+            ]
         );
 
         $fieldset->addElement($BodyBackground);
