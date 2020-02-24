@@ -6,9 +6,13 @@ use Shopware\Components\Form as Form;
 
 class Theme extends \Shopware\Components\Theme
 {
+    protected $extend = 'Responsive';
+
     protected $inheritanceConfig = false;
 
-    protected $extend = 'Responsive';
+    protected $javascript = array(
+        'src/js/custom.js'
+    );
 
     protected $name = <<<'SHOPWARE_EOD'
 Delight Smart 
@@ -28,6 +32,91 @@ SHOPWARE_EOD;
 
     public function createConfig(Form\Container\TabContainer $container)
     {
+        $googleUrl = "https://fonts.googleapis.com/css?family=Roboto&display=swap";
+        $one = parse_url($googleUrl);
+        error_log(print_r($one, 1));
+
+        // style for column of the theme
+        $styleColomon = [
+            'layout' => 'column',
+            'flex' => 0,
+            'defaults' => [
+                'columnWidth' => 0.5,
+                'labelWidth' => 180,
+                'margin' => '2 15 2 0'
+            ]
+        ];
+
+        //Change the color themes
+        $fieldsetTheme = $this->createFieldSet(
+            'theme_show',
+            'Common Settings',
+            [
+                'attributes' => $styleColomon,
+            ]
+        );
+
+        $fieldsetThemeLight = $this->createFieldSet(
+            'theme_light',
+            'Theme Light Settings',
+            [
+                'attributes' => $styleColomon,
+            ]
+        );
+
+        $themeChoiceShow = $this->createCheckboxField(
+            'offthemeChoice',
+            'show choice of the theme',
+            true
+        );
+
+        $themeLightLogo = $this->createMediaField(
+            'light_logo',
+            'the logo of the theme',
+            'virtualPath'
+        );
+
+//        $themeLightFontFamily = $this->createTextField(
+//            'light_font_family',
+//            'add goggle font url',
+//            '',
+//            ['attributes' =>
+//                [
+//                    'xtype' => 'tinymce',
+//                ],
+//            ]
+//
+//        );
+
+        $themeLightFont = $this->createTextField(
+            'light_font',
+            'add goggle font family',
+            "Roboto, sans-serif"
+        );
+
+        // Adding the fields to the fieldset of the header
+        $fieldsetTheme->addElement($themeChoiceShow);
+        $fieldsetThemeLight->addElement($themeLightLogo);
+//        $fieldsetThemeLight->addElement($themeLightFontFamily);
+        $fieldsetThemeLight->addElement($themeLightFont);
+
+        $tabThemeCommon = $this->createTab(
+            'theme_settings_common',
+            'Common'
+        );
+
+        $tabThemeLight = $this->createTab(
+            'theme_settings_light',
+            'theme light'
+        );
+
+        $tabThemeCommon->addElement($fieldsetTheme);
+        $tabThemeLight->addElement($fieldsetThemeLight);
+
+        $container->addTab($tabThemeCommon);
+        $container->addTab($tabThemeLight);
+
+        //dark theme
         $BodyBackground = $this->createColorPickerField(
             'Body_Background',
             'Body background',

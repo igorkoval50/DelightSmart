@@ -1,9 +1,35 @@
-body {
+.dark-them{
   background-color: @Body_Background;
 }
-
-.logo--link img {
-  background-image: @Img_Logo;
+.dark-them {
+  background: @Body_Background;
+  color: #fff;
+  .header-main {
+    background: @Body_Background;
+  }
+  .footer-main .footer--phone-link {
+    color: #ccc;
+  }
+  .container {
+    background: @Body_Background;
+  }
+  .footer-main {
+    background: @Body_Background;
+  }
+  .navigation-main {
+    background: @Body_Background;
+  }
+  .navigation--link {
+    color: #fff;
+  }
+  .footer-main .column--headline {
+    color: #ccc;
+  }
+  .logo-light {
+    display: none;
+  }
+  .logo-dark {
+    display: block;
+    background-image: @Img_Logo;
+  }
 }
-
-
