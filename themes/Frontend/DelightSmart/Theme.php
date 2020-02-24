@@ -47,7 +47,7 @@ SHOPWARE_EOD;
             ]
         ];
 
-        //Change the color themes
+        //Light Theme
         $fieldsetTheme = $this->createFieldSet(
             'theme_show',
             'Common Settings',

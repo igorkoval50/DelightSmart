@@ -27,6 +27,19 @@
                 </picture>
             </a>
         </div>
+
+        <div class="logo--shop logo-mix block">
+            {s name="IndexLinkDefault" namespace="frontend/index/index" assign="snippetIndexLinkDefault"}{/s}
+            <a class="logo--link" href="{url controller='index'}" title="{"{config name=shopName}"|escapeHtml} - {$snippetIndexLinkDefault|escape}">
+                <picture>
+                    <source srcset="{link file=$theme.mix_logo}" media="(min-width: 78.75em)">
+                    <source srcset="{link file=$theme.mix_logo}" media="(min-width: 64em)">
+                    <source srcset="{link file=$theme.mix_logo}" media="(min-width: 48em)">
+                    <img srcset="{link file=$theme.mix_logo}" alt="{"{config name=shopName}"|escapeHtml} - {$snippetIndexLinkDefault|escape}" />
+                </picture>
+            </a>
+        </div>
+
     {else}
         {$smarty.block.parent}
     {/if}
