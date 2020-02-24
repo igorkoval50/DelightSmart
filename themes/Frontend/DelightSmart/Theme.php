@@ -88,6 +88,11 @@ SHOPWARE_EOD;
 //            ]
 //
 //        );
+        $themeLightLogo = $this->createMediaField(
+            'light_logo',
+            'the logo of the theme',
+            'virtualPath'
+        );
 
         $themeLightFont = $this->createTextField(
             'light_font',
@@ -198,14 +203,53 @@ SHOPWARE_EOD;
             false
         );
 
+        $themeMixLogo = $this->createMediaField(
+            'mix_logo',
+            'the logo of the theme',
+            'virtualPath'
+        );
+
+        $themeMixFont = $this->createTextField(
+            'mix_font',
+            'add goggle font family',
+            "Roboto, sans-serif"
+        );
+
+        $themeMixFontSizeLink = $this->createPixelField(
+            'mix_font_size_link',
+            'font-size for links',
+            "16"
+        );
+
+        $themeMixFontSizeTxt = $this->createPixelField(
+            'mix_font_size_txt',
+            'font-size for links',
+            "16"
+        );
+        $themeMixFontSizeHeadline = $this->createPixelField(
+            'mix_font_size_headline',
+            'font-size for headline',
+            "24"
+        );
+        $themeMixBackground =  $this->createColorPickerField(
+            'mix_background',
+            'body background',
+            '#fff'
+        );
+
         $fieldsetConfiguration->addElement($themeConfigurationShow);
+        $fieldsetConfiguration->addElement($themeMixLogo);
+        $fieldsetConfiguration->addElement($themeMixFont);
+        $fieldsetConfiguration->addElement($themeMixFontSizeTxt);
+        $fieldsetConfiguration->addElement($themeMixFontSizeLink);
+        $fieldsetConfiguration->addElement($themeMixFontSizeHeadline);
+        $fieldsetConfiguration->addElement($themeMixBackground);
 
 
         $tabConfiguraton = $this->createTab(
             'theme_mix',
             'Theme Mix'
         );
-
 
         $tabConfiguraton->addElement($fieldsetConfiguration);
 
